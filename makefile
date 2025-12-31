@@ -11,7 +11,7 @@ build:
 	conan build && conan export
 
 test:
-	conan test test_package linxer/0.1.0 --build missing
+	conan test test_package linxer/0.1.1 --build missing
 
 docker-build:
 	$(DOCKER) build . -t wisdombeard/linxer:$(VERSION)

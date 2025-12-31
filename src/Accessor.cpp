@@ -1,5 +1,4 @@
 #include <chrono>
-#include <iostream>
 #include <sstream>
 #include <stdexcept>
 
@@ -17,6 +16,13 @@ namespace linxer
         , index()
         , buffer(buffer_size)
     {
+        if (!stream)
+        {
+            stringstream error_msg;
+            error_msg << "Failed to open '" << file_path << "'";
+            throw invalid_argument{error_msg.str()};
+        }
+
         index.push_back(0);
         _update_index();
         if (refresh_period_ms > 0)
